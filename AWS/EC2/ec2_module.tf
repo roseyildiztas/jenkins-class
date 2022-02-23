@@ -20,7 +20,7 @@ data "aws_ami" "example" {
 
 
 resource "aws_instance" "web" {
-  ami           = data.aws_ami.example.id
+  ami           = "ami-04145c8c86d2474c0"     # data.aws_ami.example.id
   instance_type = "t3.micro"
   subnet_id = data.aws_subnet.selected.id
 
@@ -29,9 +29,9 @@ resource "aws_instance" "web" {
   }
 }
 
-output "ami" {
-  value = data.aws_ami.example.id
-}
+// output "ami" {
+//   value = data.aws_ami.example.id
+// }
 
 data "aws_subnet" "selected" {
   availability_zone = "us-east-1a"
